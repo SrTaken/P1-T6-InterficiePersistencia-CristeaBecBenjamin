@@ -32,10 +32,10 @@ public interface IClubOracleBD {
      /**
      * Metode per esborrar un Jugador de la BD
      * 
-     * @param j Jugador a esborrar
+     * @param id del Jugador a esborrar
      * @throws org.milaifontanals.club.GestorBDClub
      */
-    void esborrarJugador(Jugador j) throws GestorBDClub;
+    void esborrarJugador(int id) throws GestorBDClub;
     
     /**
      * Metode per modificar les dades d'un Jugador de la BD
@@ -56,10 +56,10 @@ public interface IClubOracleBD {
      /**
      * Metode per esborrar una Temporada de la BD
      * 
-     * @param t Temporada a esborrar
+     * @param year de la Temporada a esborrar
      * @throws org.milaifontanals.club.GestorBDClub
      */
-    void esborrarTemporada(Temporada t) throws GestorBDClub;
+    void esborrarTemporada(int year) throws GestorBDClub;
     
     /**
      * Metode per afegir una nova Categoria a la BD
@@ -112,10 +112,10 @@ public interface IClubOracleBD {
      /**
      * Metode per esborrar un Jugador d'un Equip de la BD
      * 
-     * @param j Jugador a esborrar del equip
+     * @param id_j del Jugador a esborrar del equip
      * @throws org.milaifontanals.club.GestorBDClub
      */
-    void esborrarMembre(Jugador j) throws GestorBDClub;
+    void esborrarMembre(int id_j) throws GestorBDClub;
     
     /**
      * Metode per afegir un Usuari a la BD
@@ -128,10 +128,10 @@ public interface IClubOracleBD {
      /**
      * Metode per esborrar un Usuari de la BD
      * 
-     * @param u Usuari a esborrar de la BD
+     * @param login del Usuari a esborrar de la BD
      * @throws org.milaifontanals.club.GestorBDClub
      */
-    void esborrarUsuari(Usuari u) throws GestorBDClub;
+    void esborrarUsuari(String login) throws GestorBDClub;
     
     /** 
      * Metode per modificar les dades d'un Usuari de la BD
@@ -174,5 +174,19 @@ public interface IClubOracleBD {
      * @throws org.milaifontanals.club.GestorBDClub
      */
     List<Membre> obtenirLlistaMembre(Equip e) throws GestorBDClub;
+    
+    /**
+     * Metode per confirmar els canvis (fa commit)
+     * 
+     * @throws GestorBDClub 
+     */
+    
+    void confirmarCanvis() throws GestorBDClub;
+    
+    /**
+     * Metode per fer Rollback
+     * @throws GestorBDClub 
+     */
+    void desferCanvis() throws GestorBDClub;
     
 }
