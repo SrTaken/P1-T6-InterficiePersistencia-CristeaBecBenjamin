@@ -5,6 +5,7 @@
 package org.milaifontanals.club;
 
 import java.util.List;
+import java.io.File;
 
 /**
  *
@@ -28,6 +29,16 @@ public interface IClubOracleBD {
      * @throws org.milaifontanals.club.GestorBDClub
      */
     void afegirJugador(Jugador j) throws GestorBDClub;
+    
+    
+    /**
+     * Metode per iniciar sesio
+     * @param login
+     * @param password
+     * @return boolean true si es correcte, false si no
+     * @throws GestorBDClub 
+     */
+    boolean validarLogin(String login, String password) throws GestorBDClub;
     
      /**
      * Mètode per esborrar un Jugador de la BD
@@ -166,6 +177,14 @@ public interface IClubOracleBD {
     List<Categoria> obtenirLlistaCategoria() throws GestorBDClub;
     
     /**
+     * Obtenir totes els Equip de la BD
+     *
+     * @return Llista de Equip recuperats
+     * @throws org.milaifontanals.club.GestorBDClub
+     */
+    List<Equip> obtenirLlistaEquip() throws GestorBDClub;
+    
+    /**
      * Obtenir tots els Membres d'un equip de la BD
      *
      * 
@@ -188,5 +207,70 @@ public interface IClubOracleBD {
      * @throws GestorBDClub 
      */
     void desferCanvis() throws GestorBDClub;
+    
+    
+    /**
+     * Metode per obtenir el usuari que estem buscant
+     * @param login del usuari que volem obtenir
+     * @return
+     * @throws GestorBDClub 
+     */
+    Usuari getUsuari(String login) throws GestorBDClub;
+    
+    /**
+     * Metode per obtenir la Categoria que estem buscant
+     * @param Categoria que volem obtenir
+     * @return
+     * @throws GestorBDClub 
+     */
+    Categoria getCategoria(int id) throws GestorBDClub;
+    
+    /**
+     * Metode per obtenir la Temporada que estem buscant
+     * @param Temporada que volem obtenir
+     * @return
+     * @throws GestorBDClub 
+     */
+    Temporada getTemporada(int id) throws GestorBDClub;
+    
+    /**
+     * Modifica los datos de un Membre en la BD
+     * 
+     * @param m Membre a modificar
+     * @throws org.milaifontanals.club.GestorBDClub
+     */
+    void modificarMembre(Membre m) throws GestorBDClub;
+    
+    /**
+     * Obtiene un Membre específico de la BD
+     * 
+     * @param idJugador ID del jugador
+     * @param idEquip ID del equipo
+     * @return Membre encontrado o null si no existe
+     * @throws org.milaifontanals.club.GestorBDClub
+     */
+    Membre obtenirMembre(int idJugador, int idEquip) throws GestorBDClub;
+    
+    /**
+     * Obtiene un Jugador específico de la BD
+     * 
+     * @param id ID del jugador a obtener
+     * @return Jugador encontrado
+     * @throws org.milaifontanals.club.GestorBDClub
+     */
+    Jugador obtenirJugador(int id) throws GestorBDClub;
+    
+    
+    /**
+     * Metodes per exportar dades
+     * @param file
+     * @throws GestorBDClub 
+     */
+    void exportJugadorsToCSV(File file) throws GestorBDClub;
+    void exportEquipsToCSV(File file) throws GestorBDClub;
+    void exportMembresToCSV(File file) throws GestorBDClub;
+    void exportJugadorsToXML(File file) throws GestorBDClub;
+    void exportEquipsToXML(File file) throws GestorBDClub;
+    void exportMembresToXML(File file) throws GestorBDClub;
     
 }
