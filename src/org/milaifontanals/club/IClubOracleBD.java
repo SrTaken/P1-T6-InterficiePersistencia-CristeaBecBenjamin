@@ -126,7 +126,7 @@ public interface IClubOracleBD {
      * @param id_j del Jugador a esborrar del equip
      * @throws org.milaifontanals.club.GestorBDClub
      */
-    void esborrarMembre(int id_j) throws GestorBDClub;
+    void esborrarMembre(int idJugador, int idEquip) throws GestorBDClub;
     
     /**
      * Mètode per afegir un Usuari a la BD
@@ -260,17 +260,11 @@ public interface IClubOracleBD {
      */
     Jugador obtenirJugador(int id) throws GestorBDClub;
     
-    
-    /**
-     * Metodes per exportar dades
-     * @param file
-     * @throws GestorBDClub 
-     */
     void exportJugadorsToCSV(File file) throws GestorBDClub;
     void exportEquipsToCSV(File file) throws GestorBDClub;
     void exportMembresToCSV(File file) throws GestorBDClub;
     void exportJugadorsToXML(File file) throws GestorBDClub;
     void exportEquipsToXML(File file) throws GestorBDClub;
     void exportMembresToXML(File file) throws GestorBDClub;
-    
+ 
 }
