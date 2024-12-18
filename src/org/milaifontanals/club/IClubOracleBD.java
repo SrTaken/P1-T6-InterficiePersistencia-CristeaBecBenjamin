@@ -260,11 +260,26 @@ public interface IClubOracleBD {
      */
     Jugador obtenirJugador(int id) throws GestorBDClub;
     
+    /**
+     * Metode per obtenir tots els equips al que pertany un jugador
+     * @param idJugador id del jugador a cercar en els equips
+     * @return
+     * @throws GestorBDClub 
+     */
+    List<Equip> obtenirEquipsJugador(int idJugador) throws GestorBDClub;
+    
+    /**
+     * Metodes per exportacio de dades
+     * @param file
+     * @throws GestorBDClub 
+     */
     void exportJugadorsToCSV(File file) throws GestorBDClub;
     void exportEquipsToCSV(File file) throws GestorBDClub;
     void exportMembresToCSV(File file) throws GestorBDClub;
     void exportJugadorsToXML(File file) throws GestorBDClub;
     void exportEquipsToXML(File file) throws GestorBDClub;
     void exportMembresToXML(File file) throws GestorBDClub;
+    void exportJugadorsWithEquipsToXML(File file) throws GestorBDClub;
+    void exportJugadorsWithEquipsToCSV(File file) throws GestorBDClub;
  
 }
